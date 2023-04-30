@@ -1,0 +1,19 @@
+<h3 mat-dialog-title>OTP for {{title}}</h3>
+<mat-dialog-content class="mat-typography">
+
+    <span>Acc Name : {{accName}}</span>
+
+    <div>
+        <mat-form-field>
+            <mat-label>Enter OTP</mat-label>
+            <input matInput [(ngModel)]="otp" type="number" maxlength="4" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+            <mat-hint>Test Otp : 1234</mat-hint>
+        </mat-form-field>
+    </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Close</button>
+    <button mat-button cdkFocusInitial (click)="linkedAccount()">Proceed</button>
+</mat-dialog-actions>

@@ -1,0 +1,17 @@
+::ng-deep .lists-of-banks{
+        display: flex;
+        justify-content: space-between;
+        margin: 5px 0px;
+        
+    .bank-name-logo{
+        display: flex;
+        gap: 1.5em;
+        width: 35%;
+    
+        img{
+            height: 30px;
+            width: 30px;
+            border-radius: 15px;
+        }
+    }
+}

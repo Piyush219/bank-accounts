@@ -1,0 +1,26 @@
+.link-bank-account-container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .bank-account-list{
+        display: flex;
+        flex-direction: column;
+        width: 35%;
+    }
+
+    .bank-lists{
+        display: flex;
+        gap: 2em;
+    }
+
+    .account-linked-msg{
+        margin-left: 5px;
+    }
+
+    .bank-account-name{
+        width: 70%;
+    }
+}

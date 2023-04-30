@@ -1,0 +1,64 @@
+<div class="bank-main-container">
+
+
+    <!-- Here the list of all the banks will display with filter option -->
+    
+    <div class="bank-container">
+
+        <mat-form-field>
+            <mat-label>Search Bank Name</mat-label>
+            <input matInput (keyup)="customFilter($event)" placeholder="Search...">
+            <mat-hint>Below is the Dummy Data</mat-hint>
+        </mat-form-field>
+    
+        <div class="bank-lists-class">
+            <div  *ngFor="let bank of bankListsStaticJson; let i = index" [hidden]="bank.hidden">
+                <div class="lists-of-banks">
+                    <div class="bank-name-logo">
+                        <img [src]="bank.bankLogo" />
+                        <span>{{bank.bankName}}</span>
+                    </div>
+                    <div>
+                        <mat-checkbox [(ngModel)]="bank.checked" labelPosition="before" (change)="enterToSelectedBank($event, bank)">
+                        </mat-checkbox>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+   
+    
+    <!-- The Selected Banks list -->
+
+    <div *ngIf="selectedBank.length" class="bank-container selected-bank">
+        <div>
+            <h3>Selected Banks:</h3>
+            <div>
+                <div class="bank-lists-class selected-bank-list">
+
+                    <!-- The Hidden Attribute is used for Filtering because as user can select multiple 
+                    banks, the checkbox checked will become unchecked on filtering -->
+                    
+                    <div class="lists-of-banks" *ngFor="let bank of selectedBank; let i = index" [hidden]="bank.hidden">
+                        <span>{{i+1}}</span>
+                        <div class="bank-name-logo">
+                            <img [src]="bank.bankLogo" />
+                            <span>{{bank.bankName}}</span>
+                        </div>
+                        <div>
+                            <button mat-stroked-button color="primary" (click)="removeSelectedBank(bank,i)">Remove</button>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div style="text-align: end;">
+                    <a [routerLink]="['/link-accounts']" [state]="selectedBank">
+                        <button mat-flat-button color="primary">Proceed</button>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

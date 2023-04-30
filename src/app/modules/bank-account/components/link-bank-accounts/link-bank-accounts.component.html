@@ -1,0 +1,27 @@
+
+<div class="link-bank-account-container">
+
+    <div *ngIf="routeData" class="bank-account-list">
+        <h3>Link Bank Account:</h3>
+        <div class="lists-of-banks" *ngFor="let data of routeData; let i = index">
+
+            <div class="bank-name-logo bank-account-name">
+                <img [src]="data.bankLogo" />
+                <span>{{data.bankName}}</span>
+                <span>Acc Name: {{data.accounts}}</span>
+            </div>
+
+            <div>
+                <ng-container *ngIf="!data.accountLinked; else removeAccount">
+                    <button mat-stroked-button color="primary" (click)="openOtpPopup(data,i)">Get OTP</button>
+                </ng-container>
+
+                <ng-template #removeAccount>
+                    <button mat-stroked-button color="primary" (click)="removeLinkedAccount(i)">Remove Account</button>
+                    <mat-hint class="account-linked-msg">Account Linked</mat-hint>
+                </ng-template>
+                
+            </div>
+        </div>
+    </div>
+</div>

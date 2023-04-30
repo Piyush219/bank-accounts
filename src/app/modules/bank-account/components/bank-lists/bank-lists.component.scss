@@ -1,0 +1,28 @@
+.bank-main-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 2em;
+}
+
+
+.bank-container{
+    width: 40%;
+    .bank-lists-class{
+        height: 80vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 1em 2em;
+    }
+    
+}
+
+.selected-bank{
+    margin-top: 10px;
+
+    .selected-bank-list{
+        height: 50vh;
+        border: 2px solid #8bacb9;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+}
