@@ -127,8 +127,6 @@ export class BankListsComponent implements OnInit {
     },
   ]
 
-  displayedColumns: string[] = ['position', 'name', 'select'];
-  dataSource = new MatTableDataSource(this.bankListsStaticJson);
   selectedBank: BankListInterface[] = [];
   constructor() { }
 
@@ -136,8 +134,12 @@ export class BankListsComponent implements OnInit {
   }
 
   customFilter(event: Event) {
+
+    // For Filtering using a Hidden property which will hide all the names
+    // that does not contain search value
+
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.data = this.dataSource.data.map((item) => {
+    this.bankListsStaticJson = this.bankListsStaticJson.map((item) => {
       if(item.bankName.toLowerCase().includes(filterValue.toLowerCase())){
         item.hidden = false;
       } else {
