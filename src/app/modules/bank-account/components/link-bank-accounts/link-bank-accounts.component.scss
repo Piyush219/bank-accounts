@@ -8,7 +8,7 @@
     .bank-account-list{
         display: flex;
         flex-direction: column;
-        width: 35%;
+        width: 40%;
         border: 2px solid #8bacb9;
         border-radius: 5px;
         padding: 1em;
@@ -21,6 +21,7 @@
 
     .account-linked-msg{
         margin-left: 5px;
+        color: gray;
     }
 
     .bank-account-name{
